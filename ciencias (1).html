@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memória do Sistema Solar - Ciências</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="index.html" id="btn-home">🏠 Início</a>
+
+    <div class="page-container">
+        <div class="game-header">
+            <h1>🪐 Memória do Sistema Solar</h1>
+            <p>Encontre os pares: planeta + característica!</p>
+        </div>
+
+        <div class="score-board">
+            <div class="score-item">🔄 Jogadas: <span id="memory-moves">0</span></div>
+            <div class="score-item">✅ Pares: <span id="memory-matched">0</span>/6</div>
+        </div>
+
+        <div class="memory-info" id="memory-feedback"></div>
+
+        <div class="memory-board" id="memory-board">
+            <!-- Cartas geradas pelo JS -->
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="btn btn-success" id="btn-memory-restart" onclick="startMemoryGame()" style="display:none;">Jogar Novamente</button>
+            <a href="index.html" class="btn btn-secondary" style="margin-left: 10px;">Voltar ao Início</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        startMemoryGame();
+    </script>
+</body>
+</html>

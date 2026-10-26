@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linha do Tempo - História</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="index.html" id="btn-home">🏠 Início</a>
+
+    <div class="page-container">
+        <div class="game-header">
+            <h1>📜 Linha do Tempo do Brasil</h1>
+            <p>Clique nos eventos na ordem cronológica correta!</p>
+        </div>
+
+        <div class="timeline-container">
+            <p class="timeline-instruction">Clique nos eventos na ordem do mais antigo para o mais recente.</p>
+
+            <div class="timeline-events" id="timeline-events">
+                <!-- Eventos gerados pelo JS -->
+            </div>
+
+            <div class="match-feedback" id="timeline-feedback"></div>
+
+            <div class="timeline-actions">
+                <button class="btn btn-success" id="btn-check-order" onclick="checkTimelineOrder()">Verificar Ordem</button>
+                <button class="btn btn-success" id="btn-timeline-restart" onclick="startTimeline()" style="display:none; margin-left:10px;">Jogar Novamente</button>
+                <a href="index.html" class="btn btn-secondary" style="margin-left: 10px;">Voltar ao Início</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        startTimeline();
+    </script>
+</body>
+</html>

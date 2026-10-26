@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio da Tabuada - Matemática</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="index.html" id="btn-home">🏠 Início</a>
+
+    <div class="page-container">
+        <div class="game-header">
+            <h1>🔢 Desafio da Tabuada</h1>
+            <p>Acerte o máximo que puder!</p>
+        </div>
+
+        <div class="score-board">
+            <div class="score-item">⭐ Pontos: <span id="math-score">0</span></div>
+            <div class="score-item">❓ Pergunta: <span id="math-question-num">1</span>/10</div>
+        </div>
+
+        <div class="question-box" id="math-question-box">
+            <div class="question-text" id="math-question">7 × 8 = ?</div>
+            <div class="options-grid" id="math-options"></div>
+            <div class="feedback" id="math-feedback"></div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="index.html" class="btn btn-secondary">Voltar ao Início</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Inicia o jogo automaticamente ao carregar a página
+        startMathGame();
+    </script>
+</body>
+</html>

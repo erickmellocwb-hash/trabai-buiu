@@ -1,0 +1,661 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', 'Comic Neue', cursive, sans-serif;
+    background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 50%, #ffd3b6 100%);
+    min-height: 100vh;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Botão Home fixo */
+#btn-home {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+#btn-home:hover {
+    background: #ee5a5a;
+    transform: scale(1.05);
+}
+
+#btn-home:active {
+    transform: scale(0.95);
+}
+
+/* Container geral das páginas de jogo */
+.page-container {
+    min-height: 100vh;
+    padding: 80px 20px 40px;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== HOME ========== */
+.home-page {
+    text-align: center;
+    padding-top: 60px;
+}
+
+.logo {
+    font-size: 3rem;
+    color: #2d3436;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 0 #fff;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #636e72;
+    margin-bottom: 40px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.game-card {
+    background: white;
+    border-radius: 25px;
+    padding: 30px 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 5px solid transparent;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.game-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.game-card.math { border-color: #74b9ff; }
+.game-card.math:hover { background: #e3f2fd; }
+
+.game-card.port { border-color: #fd79a8; }
+.game-card.port:hover { background: #fce4ec; }
+
+.game-card.science { border-color: #55efc4; }
+.game-card.science:hover { background: #e0f7f0; }
+
+.game-card.geo { border-color: #ffeaa7; }
+.game-card.geo:hover { background: #fff8e1; }
+
+.game-card.hist { border-color: #a29bfe; }
+.game-card.hist:hover { background: #ede7f6; }
+
+.game-icon {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+}
+
+.game-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #2d3436;
+}
+
+.game-desc {
+    font-size: 0.95rem;
+    color: #636e72;
+}
+
+/* ========== GERAL DOS JOGOS ========== */
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.game-header h1 {
+    font-size: 2.2rem;
+    color: #2d3436;
+    margin-bottom: 5px;
+}
+
+.game-header p {
+    color: #636e72;
+    font-size: 1.1rem;
+}
+
+.score-board {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.score-item {
+    background: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.btn {
+    background: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: #5a4bd1;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-success {
+    background: #00b894;
+    box-shadow: 0 4px 15px rgba(0, 184, 148, 0.4);
+}
+.btn-success:hover {
+    background: #00a884;
+}
+
+.btn-secondary {
+    background: #636e72;
+    box-shadow: 0 4px 15px rgba(99, 110, 114, 0.4);
+}
+.btn-secondary:hover {
+    background: #4a5568;
+}
+
+/* ========== QUIZ COMUM (Math, Science, Geo, Hist) ========== */
+.question-box {
+    background: white;
+    border-radius: 25px;
+    padding: 40px 30px;
+    max-width: 520px;
+    margin: 0 auto 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    text-align: center;
+}
+
+.question-text {
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #2d3436;
+    margin-bottom: 25px;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.option-btn {
+    background: #74b9ff;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    padding: 18px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.option-btn:hover {
+    background: #0984e3;
+    transform: scale(1.05);
+}
+
+.option-btn.correct {
+    background: #00b894 !important;
+}
+
+.option-btn.wrong {
+    background: #e17055 !important;
+}
+
+.feedback {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    min-height: 30px;
+}
+
+.feedback.correct { color: #00b894; }
+.feedback.wrong { color: #e17055; }
+
+/* Opções em coluna (para perguntas longas) */
+.science-options,
+.geo-options,
+.hist-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.science-option,
+.geo-option,
+.hist-option {
+    background: #55efc4;
+    color: #2d3436;
+    border: none;
+    border-radius: 18px;
+    padding: 16px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    text-align: left;
+}
+
+.science-option:hover,
+.geo-option:hover,
+.hist-option:hover {
+    background: #00b894;
+    color: white;
+    transform: scale(1.03);
+}
+
+.science-option.correct,
+.geo-option.correct,
+.hist-option.correct {
+    background: #00b894 !important;
+    color: white !important;
+}
+
+.science-option.wrong,
+.geo-option.wrong,
+.hist-option.wrong {
+    background: #e17055 !important;
+    color: white !important;
+}
+
+.planet-emoji,
+.geo-emoji,
+.hist-emoji {
+    font-size: 4.5rem;
+    margin-bottom: 15px;
+}
+
+/* ========== FORCA (Português) ========== */
+.hangman-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hangman-drawing {
+    font-size: 1.7rem;
+    line-height: 1.3;
+    font-family: monospace;
+    background: white;
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    white-space: pre;
+    color: #2d3436;
+}
+
+.word-display {
+    font-size: 2.1rem;
+    letter-spacing: 12px;
+    font-weight: 700;
+    margin: 20px 0;
+    color: #2d3436;
+    min-height: 50px;
+}
+
+.hint-box {
+    background: #ffeaa7;
+    padding: 12px 25px;
+    border-radius: 50px;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    color: #6c5ce7;
+    font-weight: 600;
+}
+
+.letters-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 500px;
+    margin: 25px auto;
+}
+
+.letter-btn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 12px;
+    background: #fd79a8;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.letter-btn:hover:not(:disabled) {
+    background: #e84393;
+    transform: scale(1.1);
+}
+
+.letter-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.letter-btn.used-correct {
+    background: #00b894;
+}
+
+.letter-btn.used-wrong {
+    background: #b2bec3;
+}
+
+.hangman-message {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 20px;
+    min-height: 40px;
+}
+
+/* Resultado final */
+.final-screen {
+    text-align: center;
+    background: white;
+    border-radius: 25px;
+    padding: 40px 30px;
+    max-width: 450px;
+    margin: 30px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.final-screen h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.final-score {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #6c5ce7;
+    margin: 20px 0;
+}
+
+/* ========== MEMÓRIA (Ciências) ========== */
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 520px;
+    margin: 0 auto 25px;
+}
+
+.memory-card {
+    aspect-ratio: 1;
+    background: #55efc4;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    user-select: none;
+    text-align: center;
+    padding: 8px;
+    color: #2d3436;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.memory-card.flipped,
+.memory-card.matched {
+    background: white;
+    border: 3px solid #00b894;
+    cursor: default;
+}
+
+.memory-card.matched {
+    background: #d4edda;
+    border-color: #00b894;
+    opacity: 0.85;
+}
+
+.memory-card .card-back {
+    font-size: 2rem;
+}
+
+.memory-card .card-front {
+    display: none;
+    font-size: 0.95rem;
+    line-height: 1.3;
+}
+
+.memory-card.flipped .card-back,
+.memory-card.matched .card-back {
+    display: none;
+}
+
+.memory-card.flipped .card-front,
+.memory-card.matched .card-front {
+    display: block;
+}
+
+.memory-info {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+/* ========== ASSOCIAÇÃO (Geografia) ========== */
+.match-container {
+    max-width: 700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.match-column h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2d3436;
+    font-size: 1.2rem;
+}
+
+.match-item {
+    background: white;
+    border: 3px solid #ffeaa7;
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.match-item:hover {
+    transform: scale(1.03);
+    border-color: #fdcb6e;
+}
+
+.match-item.selected {
+    background: #fdcb6e;
+    border-color: #e17055;
+    color: #2d3436;
+}
+
+.match-item.matched {
+    background: #d4edda;
+    border-color: #00b894;
+    opacity: 0.7;
+    cursor: default;
+    pointer-events: none;
+}
+
+.match-item.wrong-temp {
+    background: #f8d7da;
+    border-color: #e17055;
+}
+
+.match-feedback {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 20px 0;
+    min-height: 35px;
+}
+
+/* ========== LINHA DO TEMPO (História) ========== */
+.timeline-container {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.timeline-instruction {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.15rem;
+    color: #636e72;
+}
+
+.timeline-events {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.timeline-event {
+    background: white;
+    border: 3px solid #a29bfe;
+    border-radius: 16px;
+    padding: 16px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.timeline-event:hover {
+    transform: scale(1.02);
+    border-color: #6c5ce7;
+}
+
+.timeline-event.selected {
+    background: #a29bfe;
+    color: white;
+    border-color: #6c5ce7;
+}
+
+.timeline-event.correct-pos {
+    background: #d4edda;
+    border-color: #00b894;
+    pointer-events: none;
+}
+
+.timeline-event .order-num {
+    background: #6c5ce7;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.timeline-event.selected .order-num {
+    background: white;
+    color: #6c5ce7;
+}
+
+.timeline-event.correct-pos .order-num {
+    background: #00b894;
+}
+
+.timeline-actions {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .logo { font-size: 2.2rem; }
+    .question-text { font-size: 1.8rem; }
+    .options-grid { grid-template-columns: 1fr; }
+    .letter-btn { width: 38px; height: 38px; font-size: 1rem; }
+    .word-display { font-size: 1.5rem; letter-spacing: 8px; }
+    .game-header h1 { font-size: 1.8rem; }
+    .memory-board { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .match-container { grid-template-columns: 1fr; }
+}

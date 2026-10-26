@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Associe Estado e Capital - Geografia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="index.html" id="btn-home">🏠 Início</a>
+
+    <div class="page-container">
+        <div class="game-header">
+            <h1>🗺️ Associe Estado e Capital</h1>
+            <p>Clique em um estado e depois na capital correta!</p>
+        </div>
+
+        <div class="score-board">
+            <div class="score-item">✅ Acertos: <span id="geo-matched">0</span>/8</div>
+            <div class="score-item">🔄 Tentativas: <span id="geo-attempts">0</span></div>
+        </div>
+
+        <div class="match-feedback" id="match-feedback">Clique em um estado e depois na capital correspondente!</div>
+
+        <div class="match-container">
+            <div id="states-column" class="match-column"></div>
+            <div id="capitals-column" class="match-column"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 25px;">
+            <button class="btn btn-success" id="btn-geo-restart" onclick="startGeoMatch()" style="display:none;">Jogar Novamente</button>
+            <a href="index.html" class="btn btn-secondary" style="margin-left: 10px;">Voltar ao Início</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        startGeoMatch();
+    </script>
+</body>
+</html>
